@@ -1,0 +1,37 @@
+{% extends 'admin/base.html' %}
+{% block style %}
+{{super()}}
+    <style>
+        h1{
+            text-align: center;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <form action="" method="post">
+        <h1>Voir voyage programmé</h1>
+        <div class="group">
+            <label for="vd">Ville de départ</label>
+            <select required name="ville_depart" id="vd">
+                <option value="">-- Faire un choix --</option>
+                {% if villes %}
+                {% for ville in villes %}
+                <option value="{{ville.nom_ville}}">{{ville.nom_ville}}</option>
+                {% endfor %}
+                {% endif %}
+            </select>
+        </div>
+        <div class="group">
+            <label for="va">Destination</label>
+            <select required name="ville_arrivee" id="va">
+                <option value="">-- Faire un choix --</option>
+                {% if villes %}
+                {% for ville in villes %}
+                <option value="{{ville.nom_ville}}">{{ville.nom_ville}}</option>
+                {% endfor %}
+                {% endif %}
+            </select>
+        </div>
+        <button class="info" type="submit">Vérifier</button>
+    </form>
+{% endblock %}

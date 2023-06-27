@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h1 class="mt-5">Recherche de voyages en car</h1>
+                <form method="POST" action="{{ url_for('recherche') }}">
+                    {{ form.hidden_tag() }}
+                    <div class="form-group">
+                        <label for="{{ form.ville_depart.id }}">{{ form.ville_depart.label }}</label>
+                        {{ form.ville_depart(class="form-control", id=form.ville_depart.id) }}
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.ville_arrivee.id }}">{{ form.ville_arrivee.label }}</label>
+                        {{ form.ville_arrivee(class="form-control", id=form.ville_arrivee.id) }}
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.date_voyage.id }}">{{ form.date_voyage.label }}</label>
+                        {{ form.date_voyage(class="form-control", id=form.date_voyage.id) }}
+                    </div>
+                    {{ form.submit(class="btn btn-primary") }}
+                </form>
+                {% if voyages %}
+                    <ul class="mt-4">
+                        {% for voyage in voyages.items %}
+                            <li>{{ voyage.ville_depart }} - {{ voyage.ville_arrivee }} ({{ voyage.date_voyage }})</li>
+                        {% endfor %}
+                    </ul>
+                    <div class="pagination mt-4">
+                        {% if pagination.has_prev %}
+                            <a href="{{ pagination.prev_href() }}" class="btn btn-secondary">Précédent</a>
+                        {% endif %}
+                        {% for page in pagination.iter_pages() %}
+                            {% if page %}
+                                {% if page == pagination.page %}
+                                    <strong>{{ page }}</strong>
+                                {% else %}
+                                    <a href="{{ pagination.page_href(page) }}" class="btn btn-secondary">{{ page }}</a>
+                                {% endif %}
+                            {% else %}
+                                <span class="ellipsis">...</span>
+                            {% endif %}
+                        {% endfor %}
+                        {% if pagination.has_next %}
+                            <a href="{{ pagination.next_href() }}" class="btn btn-secondary">Suivant</a>
+                        {% endif %}
+                    </div>
+                {% else %}
+                    <p class="mt-4">Aucun voyage trouvé.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

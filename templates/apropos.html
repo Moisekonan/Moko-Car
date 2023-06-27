@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- banner -->
+<div class="inner-banner" id="home">
+	<div class="inner-banner-overlay">
+		<div class="container">
+			
+		</div>
+	</div>
+</div>
+<!-- //banner -->
+
+<!-- page details -->
+<div class="breadcrumb-agile">
+	<div class="container">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item">
+				<a href="{{ url_for('baseabonne') }}">Accueil</a>
+			</li>
+			<li class="breadcrumb-item active" aria-current="page">À propos</li>
+		</ol>
+	</div>
+</div>
+<!-- //page details -->
+
+<!-- about -->
+<section class="about py-sm-5 py-4">
+	<div class="container py-lg-5 py-sm-3">
+		<div class="row">
+			<div class="col-lg-6 inner-about">
+				<h3 class="mt-md-4 mt-2">Moko<span style="color:#da9d40">.</span>Car</h3>
+				<h5 class="bottom mt-sm-4 mt-3">La société de voyage, la meilleur !</h5>
+				<p class="">Nous accordons une grande importance à la satisfaction de nos clients, 
+                c'est pourquoi nous nous efforçons de fournir un service clientèle de haute qualité. 
+                Notre équipe est disponible pour répondre à toutes vos questions, traiter vos demandes de réservation et vous aider en cas de problème pendant votre voyage.</p>
+			</div>
+			<div class="col-lg-6 mt-lg-0 mt-4">
+				<img src="{{ url_for('static', filename='images/4.jpg') }}" class="img-fluid" alt="" />
+			</div>
+		</div>
+	</div>
+</section>
+<!-- //about -->
+
+<!-- discount -->
+<section class="discount-grid text-center">
+	<div class="overlay-all py-5">
+		<div class="container py-md-4">
+			<div class="offer-grid">
+				<h2 class="text-capitalize">Bénéficiez d'une offre forfaitaire de 20 % sur les voyages</h2>
+				<p class="mt-4">Lorsque vous vous inscrivez sur notre plateforme vous bénéficez de cette offre</p>
+				<a href="{{ url_for('baseabonne') }}" class="btn"> Lire Plus</a>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- //discount -->
+
+{% endblock %}

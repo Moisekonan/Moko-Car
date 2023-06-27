@@ -1,0 +1,62 @@
+{% extends 'admin/base.html' %}
+{% block style %}
+{{ super() }}
+<style>
+    .container{
+        background-color: #fff;
+        width: 100%;
+        max-width: 700px;
+    }
+
+    table{
+        width: 50%;
+        border-collapse: collapse;
+    }
+
+    table tr th{
+        font-size: 1.2rem;
+        text-align: center;
+        color: #000;
+        background-color: var(--black);
+    }
+
+    table tr td{
+        font-size: .9rem;
+        text-align: center;
+        color: var(--black);
+        background-color: var(--grey);
+    }
+</style>
+{% endblock %}
+{% block content %}
+<a href="{{ url_for('administration') }}">Retour</a>
+<hr>
+{% if error %}
+    <div class="error">{{ error }}</div>
+{% endif %}
+{% if success %}
+    <div class="success">{{ success }}</div>
+{% endif %}
+<div class="container">
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if villes %}
+                {% for ville in villes %}
+                    <tr>
+                        <td>{{ville.nom_ville}}</td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="2">Aucune ville</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

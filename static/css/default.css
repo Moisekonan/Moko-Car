@@ -1,0 +1,102 @@
+:root{
+    --black : #da9d40;
+    --grey : #eee;
+    --blue : #275eea;
+    --blueh : #0949e9;
+    --red : #ea2727;
+    --redh : #c51414;
+    --green : #0eb90e;
+    --greenh : #179417;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-weight: 100;
+}
+
+html,body{
+    width: 100%;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    color: var(--black);
+    background-color: var(--grey);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+main{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+a{
+    text-decoration: none;
+    color: var(--black);
+}
+
+.flashes{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 5px 1px #c9c9c935;
+}
+
+.flashes p{
+    width: 100%;
+    padding: 6px 10px;
+}
+
+.error{
+    background-color: var(--red);
+    color: #fff;
+}
+.error:hover{
+    background-color: var(--redh);
+    transition: all 0.1s ease-in-out;
+}
+
+.success{
+        background-color: var(--green);
+        color: #fff;
+}
+.success:hover{
+    background-color: var(--greenh);
+    transition: all 0.1s ease-in-out;
+}
+
+.info{
+    background-color: var(--blue);
+    color: #fff;
+}
+.info:hover{
+    background-color: var(--blueh);
+    transition: all 0.1s ease-in-out;
+}
+
+input, select{
+    outline: none;
+    border: none;
+    width: 100%;
+    min-height: 30px;
+    padding: 5px;
+}
+
+input, select{
+border: 1px solid var(--grey);
+}
+
+button{
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+}

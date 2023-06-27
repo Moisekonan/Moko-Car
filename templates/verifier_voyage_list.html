@@ -1,0 +1,55 @@
+{% extends 'admin/base.html' %}
+{% block style %}
+{{super()}}
+    <style>
+        .container{
+            background-color: #fff;
+            width: 100%;
+            max-width: 700px;
+        }
+
+        table{
+            width: 100%;
+        }
+
+        table tr th{
+            text-align: center;
+            color: #fff;
+            background-color: var(--black);
+        }
+
+        table tr td{
+            text-align: center;
+            color: var(--black);
+            background-color: var(--grey);
+        }
+    </style>
+{% endblock %}
+{% block content %}
+<div class="container">
+    <table>
+        <thead>
+            <tr>
+                <th>Départ</th>
+                <th>Destination</th>
+                <th>Tarif</th>
+                <th>Date</th>
+                <th>Heure</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if voyages %}
+            {% for voyage in voyages %}
+                <tr>
+                    <td>{{voyage.ville_depart}}</td>
+                    <td>{{voyage.ville_arrivee}}</td>
+                    <td>{{voyage.tarif}}</td>
+                    <td>{{voyage.date}}</td>
+                    <td>{{voyage.heure}}</td>
+                </tr>
+            {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

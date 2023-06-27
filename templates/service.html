@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- banner -->
+<div class="inner-banner" id="home">
+	<div class="inner-banner-overlay">
+		<div class="container">
+			
+		</div>
+	</div>
+</div>
+<!-- //banner -->
+
+<!-- page details -->
+<div class="breadcrumb-agile">
+	<div class="container">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item">
+				<a href="index.html">Accueil</a>
+			</li>
+			<li class="breadcrumb-item active" aria-current="page">Nos Services</li>
+		</ol>
+	</div>
+</div>
+<!-- //page details -->
+
+<!-- services -->
+<section class="services py-5" id="services">
+	<div class="container py-lg-5 py-3">
+        <div class="row mt-5">
+			<div class="col-md-6 p-md-0">
+				<div class="bg-image-left">	
+					<h4>VOYAGES & EXCURSIONS</h4>
+				</div>
+			</div>
+			<div class="col-md-6 p-md-0 text-center">
+                <h1 class="m-3">Recherche de voyages programmés</h1>
+                        <form action="" method="post">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                            <div class="group">
+                                <label for="vd">Ville de départ</label><br>
+                                <select required name="ville_depart" id="vd" style="width:50%;border:1px solid #da9d40">
+                                    <option value="" class="text-center">-- Faire un choix --</option>
+                                    {% if villes %}
+                                    {% for ville in villes %}
+                                    <option value="{{ville.nom_ville}}" class="text-center">{{ville.nom_ville}}</option>
+                                    {% endfor %}
+                                    {% endif %}
+                                </select>
+                            </div>
+                            <div class="group">
+                                <label for="va">Destination</label><br>
+                                <select required name="ville_arrivee" id="va" style="width:50%;border:1px solid #da9d40">
+                                    <option value="" class="text-center">-- Faire un choix --</option>
+                                    {% if villes %}
+                                    {% for ville in villes %}
+                                    <option value="{{ville.nom_ville}}" class="text-center">{{ville.nom_ville}}</option>
+                                    {% endfor %}
+                                    {% endif %}
+                                </select>
+                            </div>
+                            <button class="btn btn-sm mt-3" type="submit" style="background-color:#da9d40">Vérifier</button>
+                        </form>
+			</div>	
+		</div>	
+	</div>		
+</section>
+<!-- //services -->
+
+ <!-- stats -->
+ <section class="stats py-5" id="stats">
+    <div class="container py-lg-5 py-md-3">
+        <div class="row stat-grids">
+            <div class="col-lg-6 stats-left">
+                <h3 class="heading mb-4 text-li">Années sur le terrain</h3>
+                <h4><span>20+</span> D'année d'Experience</h4>
+            </div>
+            <div class="col-lg-6 grid1 stats-right mt-lg-0 mt-4 pl-5">
+                <div class="row">
+                    <div class="col-sm-4 col-6">
+                        <p class="text-li">Clients satisfaits</p>
+                        <h4 class="text-wh">12k</h4>
+                        <span class="fa fa-users mr-2"></span>
+                    </div>
+                    <div class="col-sm-4 col-6">
+                        <p>Travaux réalisés</p>
+                        <h4>15k</h4>
+                        <span class="fa fa-tasks mr-2"></span>
+                    </div>
+                    <div class="col-sm-4 col-6 mt-sm-0 mt-5">
+                        <p>Total des tournées</p>
+                        <h4>25k</h4>
+                        <span class="fa fa-files-o mr-2"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- //stats -->
+
+{% endblock %}

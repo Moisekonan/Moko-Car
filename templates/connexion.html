@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - Moko.Car</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/form2.css') }}">
+</head>
+<body>
+    <div class="top">
+        <a href="{{ url_for('baseabonne') }}"><h1 style="color:#fff">Moko<span style="color:#da9d40">.</span>Car
+        </h1></a>
+    </div>
+    <form method="POST" action="{{ url_for('connexion') }}" class="login">
+        <h2 class="mt-5">Connexion</h2>
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            <label for="{{ form.username.id }}">{{ form.username.label }}</label>
+            {{ form.username(class="form-control", id=form.username.id) }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.password.id }}">{{ form.password.label }}</label>
+            {{ form.password(class="form-control", id=form.password.id) }}
+        </div>
+        {{ form.submit(class="btn btn-primary") }}
+    </form>
+
+    <div class="btn_con">
+        <a href="{{ url_for('inscription') }}"><p style="color:#fff">ou créer un compte</p></a>
+    </div>
+
+    <script>
+        // Fonction pour afficher les messages d'alerte
+        function showAlert(message, category) {
+            var alertDiv = document.createElement("div");
+            alertDiv.className = "alert alert-" + category;
+            alertDiv.innerHTML =
+            "<p style='font-weight: normal;'>" + message + "</p>";
+
+            var mainContent = document.querySelector("main");
+            mainContent.insertBefore(alertDiv, mainContent.firstChild);
+
+            // Fermer automatiquement l'alerte après 5 secondes
+            setTimeout(function () {
+            alertDiv.remove();
+            }, 5000);
+        }
+    </script>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %} 
+        {% for category, message in messages %}
+            <script>
+                showAlert("{{ message }}", "{{ category }}");
+            </script>
+        {% endfor %} 
+    {% endif %} 
+    {% endwith %}
+</body>
+</html>
+

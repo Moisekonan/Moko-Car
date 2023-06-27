@@ -1,0 +1,370 @@
+<!-- newsletter -->
+<section class="subscribe-main py-5" id="abonner">
+    <div class="container py-md-4">
+        <h3 class="heading text-center mb-5">Newsletter</h3>
+        <div class="row pt-lg-5">
+            <div class="col-lg-6">
+                <div class="heading-grid mb-0">
+                    <h4>
+                        Veuillez vous abonner afin de recevoir toutes nos notifications de nouvelles offres.
+                    </h4>
+                </div>
+            </div>
+            <div class="col-lg-6 newsletter-info mt-4">
+                <!--<form action="{{ url_for('contact') }}" method="post" class="d-flex">
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Entrer votre Email..."
+                        required
+                    />
+                    <button type="submit" class="btn">S'abonner</button>
+                </form>-->
+               <!-- <form method="POST" action="{{ url_for('contact') }}" class="d-flex">
+                    {{ form.hidden_tag() }}
+                    <div>
+                        {{ form.email.label }} {{ form.email }}
+                    </div>
+                    <div>
+                        {{ form.submit(class="btn") }}
+                    </div>
+                </form>-->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- //newsletter -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/default.css')}}"
+    />
+    <title>
+      {% if title %}{{title}}{% else %} VOYAGE EN COMMUN {% endif %}
+    </title>
+  </head>
+  <body>
+    <header>
+      <a href="{{url_for('administration')}}" class="logo"
+        >Moko<span style="color: #da9d40">.</span>Car</a
+      >
+    </header>
+    <div class="sidebar">
+      <ul class="navigation">
+        <li><a href="{{url_for('page_ville')}}">Ajouter une ville</a></li>
+        <li><a href="{{url_for('page_villes')}}">Liste des villes</a></li>
+        <li><a href="{{url_for('page_voyage')}}">Définir un voyage</a></li>
+        <li><a href="{{url_for('page_voyages')}}">Listes des voyages</a></li>
+        <li><a href="{{url_for('page_verifier')}}">Vérifier voyage</a></li>
+      </ul>
+    </div>
+    <div class="content">
+      {% with messages = get_flashed_messages(with_categories=true) %} {% if
+      messages %}
+      <div class="flashes">
+        {% for category, message in messages %}
+        <p class="{{ category }}">{{ message }}</p>
+        {% endfor %}
+      </div>
+      {% endif %} {% endwith %}
+      <main>{% block content %}{% endblock %}</main>
+    </div>
+    <footer></footer>
+  </body>
+</html>
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--black);
+    padding: 10px 20px;
+    min-height: 90px;
+  }
+  .logo {
+    color: #fff;
+    font-size: 3em;
+    font-family: Poppins, "Franklin Gothic Medium", "Arial Narrow", Arial,
+      sans-serif;
+  }
+  
+  .sidebar {
+    background-color: #f5f5f5;
+    width: 250px;
+    padding: 20px;
+  }
+  
+  .navigation {
+    margin-top: 20px;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .navigation li {
+    margin-bottom: 10px;
+  }
+  
+  .navigation li a {
+    color: #000;
+    font-size: 1.2em;
+    text-decoration: none;
+  }
+  
+  .navigation li a:hover {
+    color: #da9d40;
+    font-weight: 500;
+  }
+  
+  .content {
+    margin-left: 300px;
+    padding: 20px;
+  }
+  
+  form {
+    width: 100%;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px 2px #0000003d;
+    border-radius: 5px;
+    padding: 20px;
+    gap: 2em;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/default.css')}}">
+    <title>{% if title %}{{title}}{% else %} VOYAGE EN COMMUN {% endif %}</title>
+    {% block style %}
+    <style>
+        header{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: var(--black);
+            padding: 10px 20px;
+            min-height: 90px;
+        }
+
+        .logo{
+            color: #fff;
+            font-size: 3em;
+            font-family: Poppins, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .navigation{
+            display: flex;
+            flex-grow: 1;
+            max-width: 60%;
+            justify-content: space-around;
+        }
+
+        .navigation li a{
+            color: #fff;
+            font-size: 1.2em;
+        }
+
+        .navigation li a:hover{
+            color: #ffffffe4;
+            font-weight: 200;
+            transition: all 0.2s ease-in-out;
+            text-shadow: 1px 1px 1px #000;
+        }
+
+        form{
+            width: 100%;
+            max-width: 700px;
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px 2px #0000003d;
+            border-radius: 5px;
+            padding: 20px;
+            gap: 2em;
+        }
+    </style>
+    {% endblock %}
+</head>
+<body>
+    <header>
+        <a href="{{url_for('administration')}}" class="logo">Moko<span style="color: #da9d40">.</span>Car</a>
+        <ul class="navigation">
+            <li><a href="{{url_for('page_ville')}}">Ajouter une ville</a></li>
+            <li><a href="{{url_for('page_villes')}}">Liste des villes</a></li>
+            <li><a href="{{url_for('page_voyage')}}">Définir un voyage</a></li>
+            <li><a href="{{url_for('page_voyages')}}">Listes des voyages</a></li>
+            <li><a href="{{url_for('page_verifier')}}">Vérifier voyage</a></li>
+        </ul>
+    </header>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class=flashes>
+            {% for category, message in messages %}
+            <p class="{{ category }}">{{ message }}</p>
+            {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+    <main>
+    {% block content %}
+
+    {% endblock %}
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ce qui marchait
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/default.css')}}">
+    <title>{% if title %}{{title}}{% else %} VOYAGE EN COMMUN {% endif %}</title>
+    {% block style %}
+    <style>
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--black);
+            padding: 10px 20px;
+            min-height: 90px;
+          }
+          .logo {
+            color: #fff;
+            font-size: 3em;
+            font-family: Poppins, "Franklin Gothic Medium", "Arial Narrow", Arial,
+              sans-serif;
+          }
+          
+          .sidebar {
+            background-color: red;
+            width: 250px;
+            height:92vh;
+            padding: 20px;
+          }
+          
+          .navigation {
+            margin-top: 20px;
+            list-style: none;
+            padding: 0;
+          }
+          
+          .navigation li {
+            margin-bottom: 30px;
+          }
+          
+          .navigation li a {
+            color: #000;
+            font-size: 1.2em;
+            text-decoration: none;
+          }
+          
+          .navigation li a:hover {
+            color: #da9d40;
+            font-weight: 500;
+          }
+          
+          .content {
+            margin-left: 300px;
+            padding: 20px;
+          }
+          
+          form {
+            width: 100%;
+            max-width: 700px;
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px 2px #0000003d;
+            border-radius: 5px;
+            padding: 20px;
+            gap: 2em;
+          }
+    </style>
+    {% endblock %}
+</head>
+<body>
+    <header>
+        <a href="{{url_for('administration')}}" class="logo"
+          >Moko<span style="color: #da9d40">.</span>Car</a
+        >
+        <li class=""><a class="" href="{{ url_for('deconnexion') }}">Déconnexion</a></li>
+    </header>
+    <div class="sidebar">
+        <ul class="navigation">
+            <li><a href="{{url_for('page_ville')}}">Ajouter une ville</a></li>
+            <li><a href="{{url_for('page_villes')}}">Liste des villes</a></li>
+            <li><a href="{{url_for('page_voyage')}}">Définir un voyage</a></li>
+            <li><a href="{{url_for('page_voyages')}}">Listes des voyages</a></li>
+
+            <!--<li><a href="{{url_for('page_verifier')}}">Vérifier voyage</a></li>-->
+        </ul>
+    </div>
+    <div class="content">
+        {% with messages = get_flashed_messages(with_categories=true) %} {% if
+        messages %}
+        <div class="flashes">
+            {% for category, message in messages %}
+            <p class="{{ category }}">{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %} {% endwith %}
+    </div>
+    <main>{% block content %}{% endblock %}</main>
+
+    <footer></footer>
+</body>
+</html>
+

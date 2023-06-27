@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- banner -->
+<div class="inner-banner" id="home">
+	<div class="inner-banner-overlay">
+		<div class="container">
+			
+		</div>
+	</div>
+</div>
+<!-- //banner -->
+
+<!-- page details -->
+<div class="breadcrumb-agile">
+	<div class="container">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item">
+				<a href="{{ url_for('baseabonne') }}">Accueil</a>
+			</li>
+			<li class="breadcrumb-item active" aria-current="page">Nous Contactez</li>
+		</ol>
+	</div>
+</div>
+<!-- //page details -->
+
+<!-- contact -->
+<section class="contact py-sm-5 py-4">
+	<div class="container py-md-3">
+		<h2 class="heading text-capitalize text-center mb-lg-5 mb-sm-4 mb-3"> Nous Contactez</h2>
+		<div class="contact-form">
+			<form action="" method="post">
+				<input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+				<div class="row main-w3layouts-sectns">
+					<div class="col-lg-3 col-md-6 w3-btm-spc form-text1">
+						<label for="nom"> Nom:</label>
+						<input type="text" name="nom" placeholder="" required="">
+					</div>
+					<div class="col-lg-3 col-md-6 w3-btm-spc form-text2">
+						<label for="telephone">Téléphone:</label>
+						<input type="text" name="telephone" placeholder="" required="">
+					</div>
+					<div class="col-lg-3 col-md-6 w3-btm-spc form-text1">
+						<label for="email">Email:</label>
+						<input type="email" name="email" placeholder="" required="">
+					</div>
+					<div class="col-lg-3 col-md-6 w3-btm-spc form-text2">
+						<label for="sujet">Sujet:</label>
+						<input type="text" name="sujet" placeholder="" required="">
+					</div>
+				</div>
+				<div class="main-w3layouts-sectns ">
+					<div class="w3-btm-spc form-text2 p-0">
+						<textarea placeholder="" name="message"></textarea>
+					</div>
+				</div>
+				<button type="submit" class="btn"> Envoyer</button>
+			</form>
+		</div>
+	</div>
+</section>
+<!-- //contact -->
+
+<!-- map -->
+<div class="map p-2">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1582.750105433794!2d-3.9948259162546525!3d5.381688959966758!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sCocody%20Angr%C3%A9!5e0!3m2!1sen!2s!4v1622879457636" allowfullscreen></iframe>
+</div>
+<!-- map -->
+
+
+
+{% endblock %}

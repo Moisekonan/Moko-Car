@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- banner -->
+<div class="inner-banner" id="home">
+	<div class="inner-banner-overlay">
+		<div class="container">
+			
+		</div>
+	</div>
+</div>
+<!-- //banner -->
+
+<!-- page details -->
+<div class="breadcrumb-agile">
+	<div class="container">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item">
+				<a href="{{ url_for('baseabonne') }}">Services</a>
+			</li>
+			<li class="breadcrumb-item active" aria-current="page">Reservation</li>
+		</ol>
+	</div>
+</div>
+
+<!-- //section details voyages-->
+<section class="about py-sm-5 py-4">
+    <div class="container py-lg-5 py-sm-3">
+      <div class="row">
+          <div class="col-md-6">
+            <h3>Informations personnelles</h3>
+            <hr>
+            <p><strong>Nom:</strong> {{ current_user.username | upper }} </p>
+            <p><strong>Email:</strong> {{ current_user.email }}</p>
+          </div>
+          <div class="col-md-6 ">
+              <h3 class="">Réservation de billet</h3>
+              <hr>
+              <p><strong>Voyage : </strong> {{ voyage.ville_depart }} - {{ voyage.ville_arrivee }} </p>
+              <p><strong>Date de voyage : </strong> {{ voyage.date_voyage.strftime('%d-%m-%Y') }} </p>
+              <p><strong>Tarif : </strong> {{ voyage.tarif }}fcfa </p>
+              <p><strong>Heure:</strong> {{ voyage.heure.strftime('%H:%M') }} </p>
+              <form method="POST" action="{{ url_for('generate_pdf_ticket', voyage_id=voyage.id) }}">
+                  {{ form.csrf_token }}
+                  <button type="submit" class="btn" style="background-color:#da9d40">Réserver</button>
+              </form>
+          </div>
+      </div>
+    </div>
+</section>
+
+{% endblock %}
+
+

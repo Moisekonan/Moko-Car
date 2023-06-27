@@ -1,0 +1,10 @@
+.DS_Store
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+.vscode/
+instance/
+migrations/
+vlc-3.0.11/
+*.exe

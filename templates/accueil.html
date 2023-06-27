@@ -1,0 +1,197 @@
+{% extends 'base.html' %}
+
+{% block content %}
+   <!-- <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h2 class="mt-5">Bienvenue sur notre application de réservation de voyages en car</h2>
+                {% if current_user.is_authenticated %}
+                    {% if billets %}
+                        <p>Vous avez réservé les billets suivants :</p>
+                        <ul>
+                            {% for billet in billets %}
+                                <li>{{ billet.voyage.ville_depart }} - {{ billet.voyage.ville_arrivee }} ({{ billet.voyage.date_voyage }})
+                                    <a href="{{ url_for('modifier_reservation', billet_id=billet.id) }}">Modifier</a>
+                                    {% if form %}
+                                        <form action="{{ url_for('annuler_reservation', billet_id=billet.id) }}" method="post">
+                                            <input type="hidden" name="_csrf_token" value="{{ form.csrf_token() }}">
+                                            <button type="submit" class="btn btn-danger">Annuler</button>
+                                        </form>
+                                    {% endif %}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p>Vous n'avez pas encore réservé de billet.</p>
+                    {% endif %}
+                {% else %}
+                    <p>Commencez par effectuer une recherche de voyages en utilisant le formulaire ci-dessus.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div> -->
+    <!-- banner -->
+<section class="banner_w3lspvt" id="home">
+	<div class="csslider infinity" id="slider1">
+		<input type="radio" name="slides" checked="checked" id="slides_1" />
+		<input type="radio" name="slides" id="slides_2" />
+		<input type="radio" name="slides" id="slides_3" />
+		<ul>
+			<li>
+				<div class="banner-top">
+					<div class="overlay">
+						<div class="container">
+							<div class="w3layouts-banner-info">
+								<h3 class="text-wh"> VOYAGE EXCEPTIONNEL CHEZ  <span style="color:#da9d40">Moko.Car</span></h3>
+								<h4 class="text-wh"> La société de voyage, la meilleur !</h4>
+								<a href="{{ url_for('apropos') }}" class="button-style mt-4" style="color:#da9d40">Lire Plus</a>
+								</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="banner-top1">
+					<div class="overlay">
+						<div class="container">
+							<div class="w3layouts-banner-info">
+								<h3 class="text-wh"> VOYAGE EXCEPTIONNEL CHEZ  <span style="color:#da9d40">Moko.Car</span></h3>
+								<h4 class="text-wh"> La société de voyage, la meilleur !</h4>
+								<a href="{{ url_for('apropos') }}" class="button-style mt-4" style="color:#da9d40">Lire Plus</a>
+								</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="banner-top2">
+					<div class="overlay">
+						<div class="container">
+							<div class="w3layouts-banner-info">
+								<h3 class="text-wh"> VOYAGE EXCEPTIONNEL CHEZ  <span style="color:#da9d40">Moko.Car</span></h3>
+								<h4 class="text-wh"> La société de voyage, la meilleur !</h4>
+								<a href="about.html" class="button-style mt-4" style="color:#da9d40">Lire Plus</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+		<div class="arrows">
+			<label for="slides_1"></label>
+			<label for="slides_2"></label>
+			<label for="slides_3"></label>
+		</div>
+	</div>
+</section>
+<!-- //banner -->
+
+<!--/ab -->
+    <section class="about py-lg-5 py-md-5 py-3">
+        <div class="container">
+                <!-- services -->
+                <div class="fetured-info py-lg-5 py-3">
+                    <h3 class="heading text-center mb-lg-5 mb-3">Ce que nous faisons</h3>
+                    <div class="row fetured-sec mt-lg-5">
+                        <div class="col-lg-12 serv_bottom">
+                            <div class="featured-left text-center row">
+                                <div class="container-fluid text-center col-sm-6">
+                                    <div class="bottom-gd fea">
+                                        <span class="fa fa-ticket" aria-hidden="true"></span>
+                                        <h3 class="my-3">Reservation de Billet</h3>
+                                        <p class="px-lg-3">Pour un voyage en securité et comfortable</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- //services -->
+           
+        </div>
+    </section>
+    <!-- //ab -->
+ <!-- stats -->
+    <section class="stats py-5" id="stats">
+        <div class="container py-lg-5 py-md-3">
+            <div class="row stat-grids">
+                <div class="col-lg-6 stats-left">
+                    <h3 class="heading mb-4 text-li">Années sur le terrain</h3>
+                    <h4><span>20+</span> D'année d'Experience</h4>
+                </div>
+                <div class="col-lg-6 grid1 stats-right mt-lg-0 mt-4 pl-5">
+                    <div class="row">
+                        <div class="col-sm-4 col-6">
+                            <p class="text-li">Clients satisfaits</p>
+                            <h4 class="text-wh">12k</h4>
+                            <span class="fa fa-users mr-2"></span>
+                        </div>
+                        <div class="col-sm-4 col-6">
+                            <p>Travaux réalisés</p>
+                            <h4>15k</h4>
+                            <span class="fa fa-tasks mr-2"></span>
+                        </div>
+                        <div class="col-sm-4 col-6 mt-sm-0 mt-5">
+                            <p>Total des tournées</p>
+                            <h4>25k</h4>
+                            <span class="fa fa-files-o mr-2"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- //stats -->
+
+
+ <!-- testimonials -->
+    <section class="testimonials py-5" id="testi">
+        <div class="container py-xl-5 py-lg-3">
+            <h3 class="heading text-center mb-lg-5 mb-3">ce que disent les gens</h3>
+            <div class="row">
+                <div class="col-lg-6 testimonials_grid mt-lg-0 mt-4">
+                    <div class="bg-white rounded p-lg-5 p-3">
+                        <p class="sub-test"><span class="fa fa-quote-left" aria-hidden="true"></span> J'ai été impressionné par la qualité des services fournis et par la connaissance approfondie des guides locaux. Grâce à eux, j'ai pu découvrir des endroits magnifiques et vivre des moments inoubliables.
+                        </p>
+                        <div class="row mt-4">
+                            <div class="col-3 testi-img-res">
+                                <img src="{{ url_for('static', filename='images/te1.jpeg') }}" alt=" " class="img-fluid" />
+                            </div>
+                            <div class="col-9 testi_grid mt-xl-3 mt-lg-2 mt-md-4 mt-2">
+                                <h5 class="mb-2">Moise Konan</h5>
+                                <p>Passager</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 testimonials_grid mt-lg-0 mt-4">
+                    <div class="bg-white rounded p-lg-5 p-3">
+                        <p class="sub-test"><span class="fa fa-quote-left" aria-hidden="true"></span> Tout s'est déroulé sans accroc, du début à la fin. L'équipe de l'entreprise a été incroyablement serviable et réactive, répondant à toutes mes questions et préoccupations lors du voyage.
+                        </p>
+                        <div class="row mt-4">
+                            <div class="col-3 testi-img-res">
+                                <img src="{{ url_for('static', filename='images/te1.jpeg') }}" alt=" " class="img-fluid" />
+                            </div>
+                            <div class="col-9 testi_grid mt-xl-3 mt-lg-2 mt-md-4 mt-2">
+                                <h5 class="mb-2">Madou Diara</h5>
+                                <p>Passager</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- //testimonials -->
+<!--we are ready -->
+  <section class="banner-image-two py-lg-4 py-md-3 py-sm-3 py-3 text-center">
+    <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
+      <h2>Nous sommes prêts à collaborer avec vous</h2>
+      <div class="view-buttn mt-md-4 mt-sm-4 mt-3">
+        <a href="{{ url_for('contact') }}" class="">Nous Contactez</a>
+      </div>
+    </div>
+  </section>
+  <!--we are ready-->
+{% endblock %}

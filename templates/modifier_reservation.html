@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- banner -->
+    <div class="inner-banner" id="home">
+    <div class="inner-banner-overlay">
+        <div class="container"></div>
+    </div>
+    </div>
+    <!-- //banner -->
+
+    <!-- page details -->
+    <div class="breadcrumb-agile">
+    <div class="container">
+        <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="{{ url_for('baseabonne') }}">Services</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="{{ url_for('reservation') }}">Reservation</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+            Enregistrer voyage
+        </li>
+        </ol>
+    </div>
+    </div>
+    <!-- //page details -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h2 class="mt-5">Modifier réservation</h2>
+                <form method="POST" action="{{ url_for('modifier_reservation', billet_id=billet.id) }}">
+                    <div class="form-group">
+                        <label for="nom">Nom :</label>
+                        <input type="text" id="nom" name="nom" value="{{ billet.nom }}" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email :</label>
+                        <input type="email" id="email" name="email" value="{{ billet.email }}" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="telephone">Téléphone :</label>
+                        <input type="text" id="telephone" name="telephone" value="{{ billet.telephone }}" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="places">Nombre de places :</label>
+                        <input type="number" id="places" name="places" value="{{ billet.places }}" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Modifier</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

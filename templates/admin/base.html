@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Moko.Car - Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+
+    <!-- Bootstrap Css -->
+    <link href="{{ url_for('static', filename='assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="{{ url_for('static', filename='assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="{{ url_for('static', filename='assets/css/app.min.css') }}" rel="stylesheet" type="text/css" />
+
+    <link href="{{ url_for('static', filename='css/default.css') }}" rel="stylesheet" type="text/css" />
+
+    {% block style %}{% endblock style %}
+
+</head>
+
+<body data-sidebar="dark">
+
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+
+        <header id="page-topbar">
+            <div class="navbar-header">
+                <div class="d-flex">
+                    <!-- LOGO -->
+                    <div class="navbar-brand-box">
+                        <a href="{{url_for('administration')}}" class="logo logo-light">
+                            <span class="logo-sm" style="color: #da9d40; font-size:5em;">
+                                Moko<span style="color: #da9d40; font-size:5em;">.</span>Car
+                            </span>
+                            <span class="logo-lg" style="color: #da9d40; font-size:2em;">
+                                Moko<span style="color: #da9d40; font-size:1em;">.</span>Car
+                            </span>
+                        </a>
+                    </div>
+
+                   
+
+                </div>
+
+                <div class="d-flex">
+
+                    <div class="d-inline-block">
+                        <h5><span style="color: #da9d40;">Bienvenue, {{ current_user.username | upper }} !</span></h5>
+                    </div>
+            
+                </div>
+            </div>
+        </header>
+
+        <!-- ========== Left Sidebar Start ========== -->
+        <div class="vertical-menu">
+
+            <div data-simplebar class="h-100">
+
+                <!--- Sidemenu -->
+                <div id="sidebar-menu">
+                    <!-- Left Menu Start -->
+                    <ul class="metismenu list-unstyled" id="side-menu">
+
+                        <li>
+                            <a href="{{url_for('page_ville')}}" class="waves-effect">
+                                <i class="mdi mdi-plus"></i>
+                                <span style="font-size:1.1rem">Ajouter une ville</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{url_for('page_villes')}}" class=" waves-effect">
+                                <i class="mdi mdi-car-traction-control"></i>
+                                <span style="font-size:1.1rem">Liste des villes</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{url_for('page_voyage')}}" class=" waves-effect">
+                                <i class="mdi mdi-routes"></i>
+                                <span style="font-size:1.1rem">Ajouter un voyage</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{url_for('page_voyages')}}" class=" waves-effect">
+                                <i class="mdi mdi-car-traction-control"></i>
+                                <span style="font-size:1.1rem">Liste des voyages</span>
+                            </a>
+                        </li>
+
+                        <li class="menu-title">Fini</li>
+
+                        <li>
+                            <a href="{{url_for('deconnexion')}}" class=" waves-effect">
+                                <i class="mdi mdi-logout"></i>
+                                <span style="font-size:1.1rem">Déconnexion</span>
+                            </a>
+                        </li>
+                </div>
+                <!-- Sidebar -->
+            </div>
+        </div>
+        <!-- Left Sidebar End -->
+
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="container-fluid">
+
+                    <div class="card">
+                        <div class="card-body">
+                            
+                            {% block content %}{% endblock %}
+                           
+                        </div>
+                        <!--end card body-->
+                    </div> <!-- end card-->
+
+
+                </div> <!-- container-fluid -->
+            </div>
+            <!-- End Page-content -->
+
+
+
+
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <script>document.write(new Date().getFullYear())</script> © MokoCar.
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="text-sm-right d-none d-sm-block">
+                                Créer <i class="mdi mdi-heart text-danger"></i> par <a href="https://github.com/KonanMoise/" target="_blank" class="text-muted">Moko&Co</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- end main content-->
+
+    </div>
+    <!-- END layout-wrapper -->
+
+    <!-- JAVASCRIPT -->
+    <script src="{{ url_for('static', filename='assets/libs/jquery/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/libs/metismenu/metisMenu.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/libs/simplebar/simplebar.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/libs/node-waves/waves.min.js') }}"></script>
+    
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>    
+
+</body>
+
+</html>

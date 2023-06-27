@@ -1,0 +1,110 @@
+{% extends 'admin/base.html' %}
+{% block style %}
+{{ super() }}
+/* Styles pour le formulaire */
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+button[type="submit"],
+a.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+}
+
+a.btn {
+  background-color: #ccc;
+  color: #fff;
+  border: none;
+  margin-left: 10px;
+}
+
+/* Style pour le titre */
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Style pour le message d'erreur */
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
+
+/* Style pour le message de succès */
+.success-message {
+  color: green;
+  margin-top: 10px;
+}
+
+{% endblock style %}
+
+{% block content %}
+<div class="container">
+    <h2>Modifier le voyage</h2>
+
+    <form method="POST" action="{{ url_for('update_voyage', id=voyage.id) }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <div class="form-group">
+            <label for="ville_depart">Départ :</label>
+            <input type="text" class="form-control" id="ville_depart" name="ville_depart" value="{{ voyage.ville_depart }}">
+        </div>
+        <div class="form-group">
+            <label for="ville_arrivee">Destination :</label>
+            <input type="text" class="form-control" id="ville_arrivee" name="ville_arrivee" value="{{ voyage.ville_arrivee }}">
+        </div>
+        <div class="form-group">
+            <label for="tarif">Tarif :</label>
+            <input type="text" class="form-control" id="tarif" name="tarif" value="{{ voyage.tarif }}">
+        </div>
+        <div class="form-group">
+            <label for="date_voyage">Date :</label>
+            <input type="date" class="form-control" id="date_voyage" name="date_voyage" value="{{ voyage.date_voyage.strftime('%Y-%m-%d') }}">
+        </div>
+        <div class="form-group">
+            <label for="heure">Heure :</label>
+            <input type="time" class="form-control" id="heure" name="heure" value="{{ voyage.heure.strftime('%H:%M') }}">
+        </div>
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
+        <a class="btn btn-secondary" href="{{ url_for('page_voyage') }}">Annuler</a>
+    </form>
+
+</div>
+{% endblock content %}

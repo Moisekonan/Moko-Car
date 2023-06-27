@@ -1,0 +1,55 @@
+{% extends 'base.html' %} {% block content %}
+<!-- banner -->
+<div class="inner-banner" id="home">
+  <div class="inner-banner-overlay">
+    <div class="container"></div>
+  </div>
+</div>
+<!-- //banner -->
+
+<!-- page details -->
+<div class="breadcrumb-agile">
+  <div class="container">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="{{ url_for('baseabonne') }}">Accueil</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="{{ url_for('service') }}">Nos Services</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        Recherches voyages
+      </li>
+    </ol>
+  </div>
+</div>
+<!-- //page details -->
+
+<!--<div class="card " style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>-->
+
+<section class="py-sm-5 py-4">
+  <div class="container py-lg-5 py-sm-3">
+    <h3 class="heading mb-sm-5 mb-4 text-center">Informations Billet</h3>
+    <div class="row">
+        <div class="card card-sm text-center" width="width: 18rem">
+            <div class="card-header" style="background-color:#da9d40">Départ</div>
+            <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">
+                    With supporting text below as a natural lead-in to additional
+                    content.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}

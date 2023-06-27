@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- banner -->
+<div class="inner-banner" id="home">
+	<div class="inner-banner-overlay">
+		<div class="container">
+			
+		</div>
+	</div>
+</div>
+<!-- //banner -->
+
+<!-- page details -->
+<div class="breadcrumb-agile">
+	<div class="container">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item">
+				<a href="{{ url_for('baseabonne') }}">Services</a>
+			</li>
+			<li class="breadcrumb-item active" aria-current="page">Liste des voyages</li>
+		</ol>
+	</div>
+</div>
+
+<!-- //section details voyages-->
+<section class="about py-sm-5 py-4">
+  <div class="container py-lg-5 py-sm-3">
+    <div class="row">
+      {% for voyage in voyages %}
+        <div class="card col-lg-6 col-md-4 col-sm-12 inner-about" style="width: 22rem; margin:30px; border:1px solid #da9d40">
+          <div class="container">
+            <h3 class="mt-5">{{ voyage.ville_depart }} - {{ voyage.ville_arrivee }}</h3>
+            <p>Date de voyage : <span class="fw-bolder">{{ voyage.date_voyage }}</span></p>
+            <p>Tarif : <span class="fw-bolder">{{ voyage.tarif }}fcfa</span></p>
+            <p>Heure : <span class="fw-bolder">{{ voyage.heure.strftime('%H:%M') }}</span></p>
+            <p><a type="button" href="{{ url_for('reservation', voyage_id=voyage.id) }}" class="book-btn">Réserver</a></p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

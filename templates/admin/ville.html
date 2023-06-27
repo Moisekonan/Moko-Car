@@ -1,0 +1,60 @@
+{% extends 'admin/base.html' %}
+
+{% block style %}
+    {{ super() }}
+    <style>
+        h1 {
+            text-align: center;
+        }
+        div.group {
+            margin: 10px 0;
+            justify-content: center;
+            text-align: center;
+        }
+        label {
+            font-size: 1.5em;
+        }
+        input {
+            width: 15%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        div.group button {
+            width: 8%;
+            border: none;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #252c3c;
+            color: #fff;
+            font-size: 1em;
+        }
+        div.group button:hover {
+            background-color: var(--black);
+            color: #252c3c;
+            cursor: pointer;
+        }
+    </style>
+{% endblock style %}
+
+{% block content %}
+    <a href="{{ url_for('administration') }}">Retour</a>
+    <hr>
+    {% if error %}
+        <div class="error">{{ error }}</div>
+    {% endif %}
+    {% if success %}
+        <div class="success">{{ success }}</div>
+    {% endif %}
+    <form action="{{ url_for('add_ville') }}" method="post">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+        <h1>Ajouter une ville</h1>
+        <div class="group mt-5">
+            <label for="ville">Nom de la ville</label><br>
+            <input required type="text" name="ville" id="ville">
+        </div>
+        <div class="group">
+            <button class="info" type="submit">Enregistrer la ville</button>
+        </div>
+    </form>
+{% endblock content %}

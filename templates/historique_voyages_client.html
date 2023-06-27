@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}Historique{% endblock title %}
+{% block content %}
+    <!-- banner -->
+    <div class="inner-banner" id="home">
+        <div class="inner-banner-overlay">
+            <div class="container">
+                
+            </div>
+        </div>
+    </div>
+    <!-- //banner -->
+
+    <!-- page details -->
+    <div class="breadcrumb-agile">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{{ url_for('baseabonne') }}">Services</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Historiques liste des voyages</li>
+            </ol>
+        </div>
+    </div>
+    <!-- //page details -->
+
+    <h2 class="text-center mt-5">Historique des voyages de {{ client.username | upper }}</h2>
+    <hr>
+    <div class="container mt-2">
+        <div class="row">
+            <table class="table">
+                <thead style="background-color:#da9d40">
+                    <tr>
+                        <th scope="col">n°</th>
+                        <th scope="col">Ville de départ</th>
+                        <th scope="col">Ville d'arrivée</th>
+                        <th scope="col">Tarif</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Heure</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for billet in billets %}
+                    <tr scope="row">
+                        <td>{{ loop.index }}</td>
+                        <td>{{ billet.voyage.ville_depart }}</td>
+                        <td>{{ billet.voyage.ville_arrivee }}</td>
+                        <td>{{ billet.voyage.tarif }}fcfa</td>
+                        <td>{{ billet.voyage.date_voyage.strftime('%d-%m-%Y') }}</td>
+                        <td>{{ billet.voyage.heure.strftime('%H:%M') }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock content %}

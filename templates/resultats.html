@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block style %}
+<!--{{super()}}
+    <style>
+        .container{
+            background-color: #fff;
+            width: 100%;
+            max-width: 700px;
+        }
+
+        table{
+            width: 100%;
+        }
+
+        table tr th{
+            text-align: center;
+            color: #fff;
+            background-color: var(--black);
+        }
+
+        table tr td{
+            text-align: center;
+            color: var(--black);
+            background-color: var(--grey);
+        }
+    </style>-->
+{% endblock %}
+
+{% block content %}
+<!-- banner -->
+<div class="inner-banner" id="home">
+	<div class="inner-banner-overlay">
+		<div class="container">
+			
+		</div>
+	</div>
+</div>
+<!-- //banner -->
+
+<!-- page details -->
+<div class="breadcrumb-agile">
+	<div class="container">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item">
+				<a href="{{ url_for('baseabonne') }}">Accueil</a>
+			</li>
+			<li class="breadcrumb-item"><a href="{{ url_for('service') }}">Nos Services</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Recherches voyages</li>
+		</ol>
+	</div>
+</div>
+<!-- //page details -->
+
+<div class="container">
+    <table class="table m-5">
+        <h3 class="text-center mt-5">Voyage disponible</h3>
+        <thead class="table-light">
+            <tr>
+                <th>Départ</th>
+                <th>Destination</th>
+                <th>Tarif</th>
+                <th>Date</th>
+                <th>Heure</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if voyages %}
+                {% for voyage in voyages %}
+                    <tr>
+                        <td>{{voyage.ville_depart}}</td>
+                        <td>{{voyage.ville_arrivee}}</td>
+                        <td>{{voyage.tarif}}fcfa</td>
+                        <td>{{voyage.date_voyage.strftime('%d-%m-%Y')}}</td>
+                        <td>{{voyage.heure.strftime('%H:%M')}}</td>
+                        {% if current_user.is_authenticated %}
+                            <td><a href="{{ url_for('reservation', voyage_id=voyage.id) }}" class="btn" style="background-color:#da9d40">Réserver</a></td>
+                        {% else %}
+                            <td><a href="{{ url_for('connexion') }}" class="btn" style="background-color:#da9d40">Réserver</a></td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="5">Aucun voyage trouvé</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
