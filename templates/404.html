@@ -1,13 +1,36 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 offset-md-3 text-center">
-                <h2 class="mt-5">Erreur 404 - Page non trouvée</h2>
-                <p class="mt-3">Désolé, la page que vous recherchez n'existe pas.</p>
-            </div>
+
+<!-- banner -->
+<div class="inner-banner" id="home">
+	<div class="inner-banner-overlay">
+		<div class="container">
+			
+		</div>
+	</div>
+</div>
+<!-- //banner -->
+
+<!-- page details -->
+<div class="breadcrumb-agile">
+	<div class="container">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item active">
+				<a href="{{ url_for('baseabonne') }}">Accueil</a>
+			</li>
+		</ol>
+	</div>
+</div>
+<!-- //page details -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 text-center">
+            <h2 class="mt-5">Erreur 404 - Page non trouvée</h2>
+            <p class="mt-3">Désolé, la page que vous recherchez n'existe pas.</p>
         </div>
     </div>
+</div>
 {% endblock %}
 

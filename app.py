@@ -507,7 +507,7 @@ def reservation(voyage_id):
 
     return render_template('reservation.html', voyage=voyage, form=form, user=user)
 
-def get_voyage_by_id(voyage_id):
+def get_voyage_by_id(voyage_id): 
     voyage = Voyage.query.get(voyage_id)
     return voyage
 
@@ -601,6 +601,7 @@ def historique_voyages_client(client_id):
 
     # Récupérer tous les billets associés à ce client
     billets = Billet.query.filter_by(user_id=client_id).order_by(Billet.date_reservation.desc()).all()
+    print('bbb',billets)
 
     return render_template('historique_voyages_client.html', client=client, billets=billets)
 

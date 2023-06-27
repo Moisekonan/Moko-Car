@@ -40,7 +40,7 @@
               <p><strong>Date de voyage : </strong> {{ voyage.date_voyage.strftime('%d-%m-%Y') }} </p>
               <p><strong>Tarif : </strong> {{ voyage.tarif }}fcfa </p>
               <p><strong>Heure:</strong> {{ voyage.heure.strftime('%H:%M') }} </p>
-              <form method="POST" action="{{ url_for('generate_pdf_ticket', voyage_id=voyage.id) }}">
+              <form method="POST" action="{{ url_for('reservation', voyage_id=voyage.id) }}">
                   {{ form.csrf_token }}
                   <button type="submit" class="btn" style="background-color:#da9d40">Réserver</button>
               </form>

@@ -37,6 +37,7 @@
                         <th scope="col">Tarif</th>
                         <th scope="col">Date</th>
                         <th scope="col">Heure</th>
+                        <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -48,6 +49,7 @@
                         <td>{{ billet.voyage.tarif }}fcfa</td>
                         <td>{{ billet.voyage.date_voyage.strftime('%d-%m-%Y') }}</td>
                         <td>{{ billet.voyage.heure.strftime('%H:%M') }}</td>
+                        <td><a href="{{ url_for('generate_pdf_ticket', voyage_id=billet.voyage.id) }}" class="btn btn-sm" style="background-color:#da9d40">Télécharger Réçu</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>
