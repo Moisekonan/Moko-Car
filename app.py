@@ -243,6 +243,7 @@ def administration():
     # recuperer les voyages et les comptes
     nombre_villes = len(Ville.query.all())
     nombre_voyages = len(Voyage.query.all())
+    
     return render_template('admin/index.html', nombre_villes=nombre_villes, nombre_voyages=nombre_voyages)
 
 
@@ -322,7 +323,7 @@ def deconnexion():
         print("addmmiiinnnnnnnnnn")
         flash('Vous avez été déconnecté avec succès.', 'success')
         return redirect(url_for('connexion'))
-    logout_user()
+    logout_user() 
     print("auuuutttrrre")
     flash('Vous avez été déconnecté avec succès.', 'success')
     return redirect(url_for('baseabonne'))
