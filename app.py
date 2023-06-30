@@ -243,8 +243,8 @@ def administration():
     # recuperer les voyages et les comptes
     nombre_villes = len(Ville.query.all())
     nombre_voyages = len(Voyage.query.all())
-    
-    return render_template('admin/index.html', nombre_villes=nombre_villes, nombre_voyages=nombre_voyages)
+    nombre_billets = len(Billet.query.all())
+    return render_template('admin/index.html', nombre_villes=nombre_villes, nombre_voyages=nombre_voyages, nombre_billets=nombre_billets)
 
 
 @app.get('/apropos')

@@ -4,7 +4,7 @@
     <div class="container">
         <h1 class="text-center mt-4 mb-5" style="font-size: 5em;">Bienvenu Mr/Mne {{current_user.username}}!</h1>
         <div class="row mt-4 mb-5">
-            <div class="col-sm-6">
+            <div class="col-sm-4">
               <div class="card text-center" style="width:50%; border:1px solid #da9d40">
                 <div class="card-body">
                   <h5 class="card-title">Nombre De Villes</h5>
@@ -12,7 +12,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-4">
               <div class="card text-center" style="width:50%; border:1px solid #da9d40">
                 <div class="card-body">
                   <h5 class="card-title">Nombre De Voyages</h5>
@@ -20,6 +20,15 @@
                 </div>
               </div>
             </div>
+            <div class="col-sm-4">
+              <div class="card text-center" style="width:50%; border:1px solid #da9d40">
+                <div class="card-body">
+                  <h5 class="card-title">Nombre De Billets Réserver</h5>
+                  <p class="card-text" style="font-size:4em">{{ nombre_billets }}</p>
+                </div>
+              </div>
+            </div>
+
         </div>
     </div>
 {% endblock %}
